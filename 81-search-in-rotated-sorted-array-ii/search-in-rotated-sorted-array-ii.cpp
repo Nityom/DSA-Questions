@@ -11,12 +11,11 @@ public:
                 return true;
             }
 
-            // Handle duplicates: If left, mid, and right are equal, just shrink the range
             if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
                 left++;
                 right--;
             } 
-            // Left portion is sorted
+           
             else if (nums[left] <= nums[mid]) {
                 if (nums[left] <= target && target < nums[mid]) {
                     right = mid - 1;
@@ -24,7 +23,7 @@ public:
                     left = mid + 1;
                 }
             }
-            // Right portion is sorted
+           
             else {
                 if (nums[mid] < target && target <= nums[right]) {
                     left = mid + 1;
