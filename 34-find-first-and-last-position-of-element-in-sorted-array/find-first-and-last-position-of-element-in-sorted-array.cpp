@@ -6,7 +6,7 @@ public:
 
 private:
     int findFirst(vector<int>& nums, int target) {
-        int idx = -1, start = 0, end = nums.size() - 1;
+        int x = -1, start = 0, end = nums.size() - 1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
             if (nums[mid] >= target) {
@@ -14,12 +14,12 @@ private:
             } else {
                 start = mid + 1;
             }
-            if (nums[mid] == target) idx = mid;
+            if (nums[mid] == target) x = mid;
         }
-        return idx;
+        return x;
     }
     int findLast(vector<int>& nums, int target) {
-        int idx = -1, start = 0, end = nums.size() - 1;
+        int x = -1, start = 0, end = nums.size() - 1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
             if (nums[mid] <= target) {
@@ -27,8 +27,8 @@ private:
             } else {
                 end = mid - 1;
             }
-            if (nums[mid] == target) idx = mid;
+            if (nums[mid] == target) x = mid;
         }
-        return idx;
+        return x;
     }
 };
