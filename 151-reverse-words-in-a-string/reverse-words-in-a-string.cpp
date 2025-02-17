@@ -15,7 +15,7 @@ public:
 
         string result;
         for (int i = 0; i < words.size(); i++) {
-            if (i > 0) result += " ";  
+            if (0<i) result += " ";  
             result += words[i];
         }
 
