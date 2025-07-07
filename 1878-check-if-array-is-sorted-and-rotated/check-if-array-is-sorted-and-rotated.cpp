@@ -1,19 +1,18 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-     int rotation =0;
-     int n = nums.size();
-     for(int i=0;i<n;i++){
+        int n = nums.size();
+        int count=0;
 
-        if(nums[i]>nums[(i+1) % n]){
-            rotation++;
+        for(int i=0;i<n;i++){
+      
+            if(nums[i]>nums[(i+1)%n]){
+             count+=1;
     
+            }
+          
         }
-        if( rotation >1){
-              return false;
-        }
-  
-     }
-      return true;
+     return count<=1;
+        
     }
 };
