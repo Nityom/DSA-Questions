@@ -1,14 +1,19 @@
 class Solution {
+    int helper(int index,vector<int>& dp){
+        if(index == 0 || index == 1){
+            return 1;
+        }
+
+        if(dp[index]!=-1){
+            return dp[index];
+        }
+
+        dp[index] = helper(index - 1,dp) + helper(index - 2,dp);
+        return dp[index];
+    }
 public:
     int climbStairs(int n) {
-  if(n<=2) return n;
-  vector<int> m(n+1);
-  m[1] =1;
-  m[2] =2;
-
-  for(int i=3 ;i<=n ; i++){
-    m[i] = m[i-1] + m[i-2];
-  }
-  return m[n];
+        vector<int> dp(n + 1 , -1);
+        return helper(n,dp);
     }
 };
