@@ -3,17 +3,13 @@ public:
     int missingNumber(vector<int>& nums) {
         int n= nums.size();
         sort(nums.begin(),nums.end());
-        
+
         for(int i=0;i<=n;i++){
             if(nums[n-1] == n) {
                    if(nums[i]!=i) return i;
-            }
-            else{
-                return n;
-            }
-
-           
+            }  
+     
         }
-        return -1;
+        return n;
     }
 };
