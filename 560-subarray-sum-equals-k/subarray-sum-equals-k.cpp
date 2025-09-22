@@ -1,25 +1,17 @@
-#include <unordered_map>
-using namespace std;
-
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
         int n = nums.size();
-        int ans=0;
-        unordered_map<int,int> m;
-        int sum=0;
+        int count = 0;
 
-        for(int i=0;i<n;i++){
-            
-            sum+=nums[i];
-            if(sum==k){
-                ans++;
+        for (int left = 0; left < n; left++) {
+            int sum = 0;
+            for (int right = left; right < n; right++) {
+                sum += nums[right];
+                if (sum == k) count++;
             }
-            if(m.find(sum-k)!= m.end()){
-                ans+=m[sum-k];
-            }     
-            m[sum]++;
         }
-        return ans;
+
+        return count;
     }
 };
